@@ -1,14 +1,50 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+     Log In
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-list>
+    <form (ngSubmit)="onLogin()" [formGroup]="loginform" novalidate >
+      <ion-item>
+        <ion-label>Email</ion-label>
+        <ion-input type="text"  formControlName="email" ></ion-input>
+      </ion-item>
+      <ion-item no-lines *ngIf="( loginform.get('email').hasError('minlength') || loginform.get('email').hasError('pattern') ||loginform.get('email').hasError('required') ) && loginform.get('email').touched">
+        <div style="color:red;" class="error" *ngIf="loginform.get('email').hasError('required') && loginform.get('email').touched">
+          Please input your email
+        </div>
+        <div style="color:red;" class="error" *ngIf="loginform.get('email').hasError('pattern') && loginform.get('email').touched">
+          Email address invalid
+        </div>
+      </ion-item>
+      
+    
+      <ion-item>
+        <ion-label>Password</ion-label>
+        <ion-input type="password"  formControlName="password" ></ion-input></ion-item>
+        <ion-item no-lines *ngIf="( loginform.get('password').hasError('minlength') || loginform.get('password').hasError('maxlength') ||loginform.get('password').hasError('required') ) && loginform.get('password').touched">
+          <div style="color:red;" class="error" *ngIf="loginform.get('password').hasError('required') && loginform.get('password').touched">
+            Please input your password
+          </div>
+          <div style="color:red;" class="error" *ngIf="loginform.get('password').hasError('minlength') && loginform.get('password').touched">
+            Minimum 6 characters
+          </div>
+          <div class="error" *ngIf="loginform.get('password').hasError('maxlength') && loginform.get('password').touched">
+            Maximum 12 characters
+          </div>
+        </ion-item>
+      <div padding>
+      <button ion-button block type="submit"  >Log In</button>
+    </div>
+    </form>
+    </ion-list>
+    
+    
+    <div padding>
+      <button ion-button block (click)="onLoginFb()"><ion-icon name="logo-facebook"></ion-icon>  Log In Using Facebook</button>
+    </div>
 </ion-content>

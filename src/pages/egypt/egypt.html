@@ -1,0 +1,108 @@
+<!--
+  Generated template for the EgyptPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Egyptian News</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <label >Categories:</label>
+  <div style="border: solid;">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-6>
+    <ion-card (click)="onBus()">
+        <img height="70" width="50" src="https://chronicleweek.com/wp-content/uploads/2018/07/Jim-Toner-Businessman-Send-in-the-Wolves.jpg"/>
+        <ion-card-content>
+          <label>
+            Business
+            </label>
+          
+        </ion-card-content>
+      </ion-card>
+      </ion-col>
+      <ion-col col-6>
+      <ion-card (click)="onEnt()">
+          <img height="70" width="50" src="https://www.indiewire.com/wp-content/uploads/2018/08/shutterstock_536246038.jpg"/>
+          <ion-card-content>
+            <label>
+              Entertainment
+              </label>
+            
+          </ion-card-content>
+        </ion-card></ion-col>
+        <ion-col col-6>
+        <ion-card (click)="onHealth()">
+            <img height="70" width="50" src="https://investorplace.com/wp-content/uploads/2018/05/healthcaremsn-compressor.jpg"/>
+            <ion-card-content>
+              <label>
+                Health
+                </label>
+              
+            </ion-card-content>
+          </ion-card></ion-col>
+          <ion-col col-6>
+          <ion-card (click)="onSci()">
+              <img height="70" width="50" src="https://media.istockphoto.com/photos/science-lab-picture-id500536318?k=6&m=500536318&s=612x612&w=0&h=aMxdUSwglJbx6pb8nNCUcCtQZVcR00A6Y7QBLh7zURo="/>
+              <ion-card-content>
+                <label>
+                  Science
+                  </label>
+                
+              </ion-card-content>
+            </ion-card></ion-col>
+            <ion-col col-6>
+            <ion-card (click)="onSports()">
+                <img height="70" width="50" src="https://www.thenewstribune.com/latest-news/8tx8w7/picture219165670/alternates/LANDSCAPE_400/TNT_Peninsula_Timberline_FB"/>
+                <ion-card-content>
+                  <label>
+                    Sports
+                    </label>
+                  
+                </ion-card-content>
+              </ion-card></ion-col>
+              <ion-col col-6>
+              <ion-card (click)="onTech()">
+                  <img height="70" width="50" src="https://asset.barrons.com/public/resources/images/ON-CE150_techst_M_20170615174437.jpg"/>
+                  <ion-card-content>
+                    <label>
+                      Technology
+                      </label>
+                    
+                  </ion-card-content>
+                </ion-card></ion-col></ion-row>
+</ion-grid>
+  </div>
+  <label>Breaking News:</label>
+  <div style="border: solid;">
+    
+        <ion-card *ngFor="let news of x">
+          <ion-row>
+            <ion-col col-4>
+              <img src={{news?.urlToImage}}/>
+            </ion-col>
+            <ion-col col-8>
+            
+            <ion-card-content> 
+              <h2><b>{{news?.title}}</b></h2>
+              <br/><br/>
+               <p>
+               {{news?.description}}</p> 
+               <br/>
+               <a href={{news?.url}}>Click here to view the full article</a>
+            </ion-card-content>
+          </ion-col>
+          </ion-row>
+          </ion-card>
+    
+  </div>
+
+</ion-content>
